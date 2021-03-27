@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+#doge {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+</style>
+<div id="doge">
+░░░░░░░░▄░░░░░░░░░░
+░░░░░░░▌▒█░░░░░░▄▀▌ 
+░░░░░░░▌▒▒█░░░░▄▀▒▐ 
+░░░░░░▐▄▀▒▒▀▀▀▄▒▒▒▐ 
+░░░░▄▄▀▒░▒▒▒▒▒▒▌▄█▐ 
+░░▄▀▒▒▒░░░▒▒░░░▀██▀▌ 
+░▐▒▒▄▄▄▒▒▒▒░░▒▒▒▀▄▒▌
+░▌░░▌█▀▒▒▒▒▄▀█▄▒▒█▒▐ 
+▐░░░▒▒▒▒▒▒▒▌██▀░▒▒▀▌ 
+▌░▒▄██▄▒▒▒▒▒▒▒▒░▒▒▒▌ 
+▌▀▐▄█▄█▌▄░▀▒░░░░▒▒▒▐ 
+▌▒▐▀▐▀▒░▄▄▒▒▒▒░▒▒▒▒▌ 
+▌▒▒▀▀▄▄▒▒▒▄▒▒▒▒░░▒▒▐ 
+▐▒▒▒▒▒▒▀▀▀▒▒▒▒░▒▒▒▒▌ 
+░▀▄▒▒▒▒▒▒▒▒▒▒▄▄▒▒▄▀ 
+░░░▀▄▄▄▄▄▄▄▀▀▀▒▄▀ 
+░░░░░░░░▒▒▒▒▒▀
+</head>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$("#doge").mousedown(function() {
+			$(this).mousemove(function() {
+				doge.style.left = event.pageX - doge.offsetWidth / 2 + 'px';
+				doge.style.top = event.pageY - doge.offsetHeight / 2 + 'px';
+			});
+		}).mouseup(function() {
+				$(this).unbind('mousemove');
+			});
+</script>

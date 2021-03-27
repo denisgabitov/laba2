@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#doge { width: 150px;
+	height: 150px; 
+	position: relative;
+}
+</style>
+</head>
+<img id="doge" src="doge.jpg" >
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).on('keydown', function(e) {
+  switch (e.key) {
+
+    // перемещение влево
+    case "ArrowLeft":
+      $('#doge').animate({
+        left: "-=100px"
+      }, 'fast');
+      break;
+      // перемещение вверх
+    case "ArrowUp":
+      $('#doge').animate({
+        top: "-=100px"
+      }, 'fast');
+      break;
+      // перемещение вправо
+    case "ArrowRight":
+      $('#doge').animate({
+        left: "+=100px"
+      }, 'fast');
+      break;
+      // перемещение вниз
+    case "ArrowDown":
+      $('#doge').animate({
+        top: "+=100px"
+      }, 'fast');
+      break;
+  }
+});
+</script>

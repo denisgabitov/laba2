@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="cursor"></div>
+<script>
+$(document).mousemove(function(event) {
+  $("#cursor").text("положение по X: "+event.pageX+", положение по Y: "+event.pageY);
+});
+</script>
+</body>
+</html>

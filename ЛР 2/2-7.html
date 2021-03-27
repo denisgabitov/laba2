@@ -1,0 +1,163 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title> zadanie 7 </title>
+	</head>
+	<body>
+		<div style="width:240px; margin:auto;">
+    <form action="" id="calc">
+    	<input type="hidden" id="firstNum" value=""/>
+    	<input type="hidden" id="secondNum" value=""/>
+    	<input type="hidden" id="operation" value=""/>
+    	<input type="tezt" id="display" maxlength="3"  style="width:120px; height:60px;"  readonly />
+		<input type="button" value="C" id="Clear_all" style="width:60px; height:60px; float:right; color:red;"/>
+		<input type="button" value="<" id="Clear" style="width:60px; height:60px; float:right;"/>
+        <input type="button" value="1" id="1" style="width:60px; height:60px; float:left;"/>
+        <input type="button" value="2" id="2" style="width:60px; height:60px; float:left;"/>
+        <input type="button" value="3" id="3" style="width:60px; height:60px; float:left;"/>
+		<input type="button" value="+" id="plus" style="width:60px; height:60px; float:left;"/>
+        <input type="button" value="4" id="4" style="width:60px; height:60px; float:left;"/>
+        <input type="button" value="5" id="5" style="width:60px; height:60px; float:left;"/>
+        <input type="button" value="6" id="6" style="width:60px; height:60px; float:left;"/>
+		<input type="button" value="-" id="subtract" style="width:60px; height:60px; float:left;"/>
+        <input type="button" value="7" id="7" style="width:60px; height:60px; float:left;"/>
+        <input type="button" value="8" id="8" style="width:60px; height:60px; float:left;"/>
+        <input type="button" value="9" id="9" style="width:60px; height:60px; float:left;"/>
+		<input type="button" value="*" id="multiply" style="width:60px; height:60px; float:left;"/>
+        <input type="button" value="0" id="0" style="width:60px; height:60px; float:left;"/>
+		<input type="button" value="." id="point" style="width:60px; height:60px; float:left;"/>
+		<input type="button" value="/" id="divide" style="width:60px; height:60px; float:left;"/>
+        <input type="button" value="=" id="equals" style="width:60px; height:60px; float:left;"/>
+    </form>
+    <div style="clear:both;"></div>
+</div>
+	</body>							
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $("#Clear_all").click(function(){
+		$('#display').val('');
+		$('#firstNum').val('');
+		$('#secondNum').val('');
+		$('#operation').val('');
+	});
+	$("#Clear").click(function(){
+		$('#display').val($('#display').val().substring(0,$('#display').val().length-1));
+		//.substring(0,1)
+	});
+    $("#point").click(function(){
+		if ($('#display').val().length != 6){
+			$('#display').val($('#display').val()+'.');
+		}
+	});
+    $("#0").click(function(){
+		if ($('#display').val().length != 6){
+			$('#display').val($('#display').val()+'0');
+		}
+	});
+	$("#1").click(function(){
+		if ($('#display').val().length != 6){
+			$('#display').val($('#display').val()+'1');
+		}
+	});
+	$("#2").click(function(){
+		if ($('#display').val().length != 6){
+			$('#display').val($('#display').val()+'2');
+		}
+	});
+	$("#3").click(function(){
+		if ($('#display').val().length != 6){
+			$('#display').val($('#display').val()+'3');
+		}
+	});
+	$("#4").click(function(){
+		if ($('#display').val().length != 6){
+			$('#display').val($('#display').val()+'4');
+		}
+	});
+	$("#5").click(function(){
+		if ($('#display').val().length != 6){
+			$('#display').val($('#display').val()+'5');
+		}
+	});
+	$("#6").click(function(){
+		if ($('#display').val().length != 6){
+			$('#display').val($('#display').val()+'6');
+		}
+	});
+	$("#7").click(function(){
+		if ($('#display').val().length != 6){
+			$('#display').val($('#display').val()+'7');
+		}
+	});
+	$("#8").click(function(){
+		if ($('#display').val().length != 6){
+			$('#display').val($('#display').val()+'8');
+		}
+	});
+	$("#9").click(function(){
+		if ($('#display').val().length != 6){
+			$('#display').val($('#display').val()+'9');
+		}
+	});
+	$("#plus").click(function(){
+			$('#operation').val('plus');
+			$('#firstNum').val($('#display').val());
+			$('#display').val('')
+			
+	});
+	$("#subtract").click(function(){
+			$('#operation').val('subtract');
+			$('#firstNum').val($('#display').val());
+			$('#display').val('')
+			
+	});
+	$("#multiply").click(function(){
+			$('#operation').val('multiply');
+			$('#firstNum').val($('#display').val());
+			$('#display').val('')
+			
+	});
+	$("#divide").click(function(){
+			$('#operation').val('divide');
+			$('#firstNum').val($('#display').val());
+			$('#display').val('')
+			
+	});
+	$("#equals").click(function(){
+	var result;
+		if ($('#firstNum').val().substring(0,1) == '.'){
+			$('#firstNum').val('0' + $('#firstNum').val());
+		}
+		$('#secondNum').val($('#display').val());
+		if ($('#secondNum').val().substring(0,1) == '.'){
+			$('#secondNum').val('0' + $('#secondNum').val());
+		}
+			if ($('#firstNum').val() != '' && $('#secondNum').val() != ''  && $('#operation').val() != '' ){
+				if ($('#operation').val() == 'plus'){
+					result = parseFloat($('#firstNum').val()) + parseFloat($('#secondNum').val())
+					$('#display').val(result.toFixed(3));
+					
+				}
+				if ($('#operation').val() == 'subtract'){
+					result = parseFloat($('#firstNum').val()) - parseFloat($('#secondNum').val())
+					$('#display').val(result.toFixed(3));
+					
+				}
+				if ($('#operation').val() == 'multiply'){
+					result = parseFloat($('#firstNum').val()) * parseFloat($('#secondNum').val())
+					$('#display').val(result.toFixed(3));
+					
+				}
+				if ($('#operation').val() == 'divide'){
+					result = parseFloat($('#firstNum').val()) / parseFloat($('#secondNum').val())
+					$('#display').val(result.toFixed(3));
+					
+				}
+			}
+
+	});
+	
+		
+</script>
